@@ -17,7 +17,7 @@ class Chronometer {
   }
 
   getSeconds() {
-    return (this.currentTime - (6000 * this.getMinutes()))/100
+    return Math.floor((this.currentTime - (6000 * this.getMinutes()))/100)
   }
 
   getCentiseconds() {
@@ -39,7 +39,9 @@ class Chronometer {
   split() {
     let minutes = this.computeTwoDigitNumber(this.getMinutes())
     let seconds = this.computeTwoDigitNumber(this.getSeconds())
+    console.log(seconds)
     let centiseconds = this.computeTwoDigitNumber(this.getCentiseconds())
+    console.log( `${minutes}:${seconds}.${centiseconds}`)
     return `${minutes}:${seconds}.${centiseconds}`
   }
 }
